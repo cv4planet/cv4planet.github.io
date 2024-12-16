@@ -1,0 +1,725 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>6.S954 Computer Vision and Planetary Health, Spring 2025</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+	<link href="css/style.css" rel="stylesheet" type="text/css" /> </head>
+
+<body>
+	<div class="container">
+		<table border="0" align="center">
+			<tr>
+				<td width="623" align="center" valign="middle">
+					<h3>MIT EECS</h3> <span class="title">6.S954 Computer Vision and Planetary Health</span></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<h3>Spring 2025</h3></td>
+			</tr>
+
+			<tr>
+				<td colspan="3" align="center"><span class="menubar">
+			<!-- [ <a href="#schedule">Schedule</a> | -->
+						<!-- <a href="#collaboration_policy">Policies</a> |  -->
+			<!-- <a href="https://piazza.com/mit/fall2023/6s898/home">Piazza</a> | -->
+			<!-- <a href="https://canvas.mit.edu/courses/22523">Canvas</a> |  -->
+		<!-- <a href="https://www.gradescope.com/courses/599409">Gradescope</a> |  -->
+					<!-- <a href="#previous_years">Previous years</a> -->
+			<!-- ]</span> -->
+			
+				</td>
+			</tr>
+			<!--<tr>
+				 <td colspan="3" align="center">
+					 <h2 style="background-color:#e9ecef; color:red; padding-top:4px; padding-bottom:4px">
+						 <a href="https://minyoungg.github.io/MIT-deeplearning-blogs/blog/" > [Final project blogs] </a>
+					 </h2>
+				 </td>
+			</tr>-->
+		</table>
+		<br />
+		<h2>Course Overview</h2>
+		<p>
+			<b>Description</b>: Introduces the growing interdisciplinary intersection of computer vision and planetary health, with a focus on introducing open challenges in CV, and AI more broadly, that limit the deployability of automated approaches for global environmental challenges. Topics include representation learning for imbalanced, fine-grained, and open-set categories, distributional robustness and adaptation, efficiency in training, evaluation, and inference, human-AI collaboration via, e.g., active learning, selective prediction, or active inference, and heterogeneously sampled multimodal learning. Lecture material covers fundamentals and SOTA methods from recent papers. Includes in-class discussion and participation, presentation of papers, and a group final project.
+		</p>
+
+		<p>
+		<b>Pre-requisites</b>: 6.8300 or 6.7960 or permission of instructor
+ 		</p>
+
+		<!-- <p>
+			<b>Note</b>: This course is appropriate for advanced undergraduates and graduate students, and is 3-0-9 units. For non-students who want access to Piazza or Canvas, email Anthea Li (yichenl@mit.edu) to be added manually. For non-MIT students, refer to <a href="https://registrar.mit.edu/registration-academics/registration-information/cross-registration">cross-registration</a>.
+		</p> -->
+
+		<!--<h2>Announcements</h2>-->
+
+		<br>
+		<hr/>
+		<br>
+		<h2>Course Information</h2>
+		<div class="col-md-12">
+			<div class="head-people">
+				
+				<div class="person col-md-6 col-sm-12 col-xs-12">
+					<div class="person-thumbnail">
+						<div class="person-avatar"> <span class="person-image" style="background: url('./img/sara.jpg'); background-size:cover;"></span> </div>
+					</div>
+					<div class="person-text">
+						<h2 class="person-name">Instructor
+                    <a href="https://beerys.github.io/" style="font-size:16px"><b>Sara Beery</b></a>
+                </h2>
+						<p><span>beery at mit dot edu</span></p>
+						<!-- <p>OH: Tues. 9-10AM. Rm. 36-153</p> -->
+					</div>
+				</div>
+                
+				<div class="person col-md-6 col-sm-12 col-xs-12">
+					<div class="person-thumbnail">
+						<div class="person-avatar"> <span class="person-image" style="background: url('./img/justin.jpeg'); background-size:cover;"></span> </div>
+					</div>
+					<div class="person-text">
+						<h2 class="person-name">TA
+                    <a href="https://justinkay.github.io/" style="font-size:16px"><b>Justin Kay</b></a>
+
+                </h2>
+						<p><span>kayj at mit dot edu</span></p>
+						<!-- <p>OH: Tues. 4-5PM, Rm. 34-302</p> -->
+					</div>
+				</div>
+			</div>
+				
+	    </div>
+    <!-- </div> -->
+		
+    
+    <div class="col-md-12">
+			<h3>- Logistics</h3>
+			<ul>
+				<li>Class meetings: Tuesday, Thursday 9:30 - 11:00 AM in room <b>32-124</b>. </li>
+				<!-- <li>We will be using both Piazza and Canvas for announcements.</li>
+				<li>Refer to: <a href="https://piazza.com/mit/fall2023/6s898/home">Piazza</a> (all questions), 
+         				      <a href="https://canvas.mit.edu/courses/22523">Canvas</a> (announcements and homework release), 
+	 <a href="https://www.gradescope.com/courses/599409">Gradescope</a> (HW submission and grades).
+				</li>
+				<li>For personal logistical questions, contact the instructors+TAs via a private Piazza post or via e-mail (we prefer Piazza).</li> -->
+			</ul>
+	</div>
+
+
+	<div class="col-md-12">
+		<h3>- Course structure</h3>
+		<ul>
+			<li>
+				One 30-min overview lecture per week introducing the topic and the basics
+			</li>
+			<li>Student presentations in class
+				<ul>
+					<li>
+						Each class will consist of 2-3 paper presentations by student groups. Each group will consist of three students, each with a different role:
+						<ul>
+							<li>
+								<b>Summarization:</b> Summarize the paper (5 minutes)
+							</li>
+							<li>
+								<b>Critique:</b> Discuss limitations of the paper (5 minutes)
+							</li>
+							<li>
+								<b>Extension:</b> Discuss 2-3 possible extensions of the paper (5 minutes)
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Discussion
+				<ul>
+					<li>
+						10 minutes of class discussion per paper
+					</li>
+				</ul>
+			</li>
+			<li>
+				Final project
+				<ul>
+					<li>
+						Group research proposal
+					</li>
+					<li>
+						More details to come
+					</li>
+				</ul>
+			</li>
+			<!-- <li>We will be using both Piazza and Canvas for announcements.</li>
+			<li>Refer to: <a href="https://piazza.com/mit/fall2023/6s898/home">Piazza</a> (all questions), 
+						   <a href="https://canvas.mit.edu/courses/22523">Canvas</a> (announcements and homework release), 
+ <a href="https://www.gradescope.com/courses/599409">Gradescope</a> (HW submission and grades).
+			</li>
+			<li>For personal logistical questions, contact the instructors+TAs via a private Piazza post or via e-mail (we prefer Piazza).</li> -->
+		</ul>
+	</div>	
+
+
+
+		<div class="col-md-12">
+			<h3>- Grading Policy</h3>
+      <!--<li><b> 5% participation </b></li>
+      <ul>
+        <li> Class attendance and participation during lectures and on Piazza.</li>
+      </ul>-->
+
+      <li><b> 60% class presentations </b>
+			<ul>
+				<li>
+					20% per role/paper (each student will present three times)
+				</li>
+			</ul>
+		</li>
+	  <li><b> 20% class participation </b></li>
+      <li><b> 20% final project </b></li>
+      
+
+	<!-- <li>
+		<a href="#collaboration_policy">Collaboration policy</a>
+	</li>
+	<li>
+		<a href="#AI_policy">AI assistants policy (ChatGPT, etc)</a>
+	</li>
+	<li>
+      	<a href="#late_policy">Late policy</a>
+	</li> -->
+
+    </div>
+
+    <p>&nbsp;</p><hr /><br />
+    <h2 id="schedule">Class Schedule</h2>
+    <br />
+		<p style="color:red;"> ** Class schedule is subject to change ** </p>
+    <table class="schedule" align="center" border="1" width="800">
+      <tbody>
+        <tr>
+          <td align="center" width="90"><strong>Date</strong></td>
+          <td align="center" width="240"><strong>Topics</strong></td>
+          <td align="center" width="130"><strong>Speakers</strong></td>
+          <td align="center" width="260"><strong>Course Materials</strong></td>
+          <!-- <td align="center" width="120"><strong>Assignments</strong></td> -->
+        </tr>
+
+
+        <tr>
+          <td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+            Week 1</td>
+        </tr>
+        <tr>
+			<td sdnum="1033;0;@" align="left">Tue 02/04</td>
+			<td align="left"> Course overview, introduction to the history and current use of CV in ecology and the environment </td>
+			<td> 
+			Sara Beery <br> Justin Kay 
+			</td>
+          	<td align="left">
+				Syllabus
+          	</td>
+        </tr>
+
+		<tr>
+			<td sdnum="1033;0;@" align="left">Thu 02/06</td>
+			<td align="left"> Introduction CV in ecology and the environment (continued) </td>
+			<td> 
+			TBD
+			</td>
+			<td align="left">
+				- <a href="https://gpai.ai/projects/responsible-ai/environment/biodiversity-and-AI-opportunities-recommendations-for-action.pdf">Biodiversity and AI: Opportunities and recommendations for action</a><br>
+				- <a href="https://www.nature.com/articles/s41467-022-27980-y">Perspectives in machine learning for wildlife conservation</a>
+			<!-- assignments -->
+			</td>
+		</tr>
+
+
+		<tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 2</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 02/11</td>
+			  <td align="left"> Overview of planetary crises including climate change, biodiversity loss, and human-wildlife conflict, current global policies and goals including 30 by 30, what is needed to make progress </td>
+			  <td> 
+				Sara Beery <br>
+			  	TBD
+			  </td>
+				<td align="left">
+					- <a href="https://www.science.org/doi/abs/10.1126/science.269.5222.347">The Future of Biodiversity</a><br>
+					- <a href="https://www.nature.com/articles/35012221">Getting the measure of biodiversity</a>
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 02/13</td>
+			  <td align="left"> Overview of planetary crises (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				- <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-ecolsys-112414-054400">Seven Shortfalls that Beset Large-Scale Knowledge of Biodiversity</a><br>
+				- <a href="https://www.nature.com/articles/s41559-019-0826-1">Essential biodiversity variables for mapping and monitoring species populations</a><br>
+				- <a href=""></a>
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 3</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 02/18</td>
+			  <td align="left"> Imbalanced and long-tailed learning </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 02/20</td>
+			  <td align="left"> Imbalanced and long-tailed learning (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 4</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 02/25</td>
+			  <td align="left"> Fine-grained recognition </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 02/27</td>
+			  <td align="left"> Fine-grained recognition (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 5</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 03/04</td>
+			  <td align="left"> Open-set learning </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 03/06</td>
+			  <td align="left"> Open-set learning (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 6</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 03/11</td>
+			  <td align="left"> Distribution shift and distributional robustness </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 03/13</td>
+			  <td align="left"> Distribution shift and distributional robustness (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 7</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 03/18</td>
+			  <td align="left"> Domain adaptation and specialization </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 03/20</td>
+			  <td align="left"> Domain adaptation and specialization (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 8</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 03/25</td>
+			  <td align="left"> Efficiency in training, evaluation, deployment </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 03/27</td>
+			  <td align="left"> Efficiency in training, evaluation, deployment (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+		
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 9</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 04/01</td>
+			  <td align="left"> Human-AI systems - Active learning </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 04/03</td>
+			  <td align="left"> Human-AI systems - Active learning (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 10</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 04/08</td>
+			  <td align="left"> Human-AI systems - Selective prediction </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 04/10</td>
+			  <td align="left"> Human-AI systems - Selective prediction (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 11</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 04/15</td>
+			  <td align="left"> Human-AI systems - Active inference and decision support </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 04/17</td>
+			  <td align="left"> Human-AI systems - Active inference and decision support (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 12</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 04/22</td>
+			  <td align="left"> Multimodality - Vision and language </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 04/24</td>
+			  <td align="left"> Multimodality - Vision and language (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 13</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 04/29</td>
+			  <td align="left"> Multimodality - Remote sensing and ground observation </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 05/01</td>
+			  <td align="left"> Multimodality - Remote sensing and ground observation (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 14</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 05/06</td>
+			  <td align="left"> Multimodality - Knowledge-guided learning, ontologies, scientific AI agents </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 05/08</td>
+			  <td align="left"> Multimodality - Knowledge-guided learning, ontologies, scientific AI agents (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+		  <tr>
+			<td colspan="6" class="schedule_week" align="center" height="28" valign="middle">
+			  Week 15</td>
+		  </tr>
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Tue 05/13</td>
+			  <td align="left"> Final project presentations </td>
+			  <td> 
+				Sara Beery <br>
+				TBD
+			  </td>
+				<td align="left">
+					TBD
+			  <!-- assignments -->
+				</td>
+		  </tr>
+  
+		  <tr>
+			  <td sdnum="1033;0;@" align="left">Thu 05/15</td>
+			  <td align="left">  Final project presentations (continued) </td>
+			  <td> 
+			  TBD
+			  </td>
+			  <td align="left">
+				TBD
+			  <!-- assignments -->
+			  </td>
+		  </tr>
+
+
+      </tbody>
+    </table>
+		
+		<hr/>
+
+		<!-- <br>
+		<h2 id=collaboration_policy>Collaboration policy</h2>
+		<p>
+			<ul>
+				<li>Psets should be written up individually and should reflect your own individual work. However, you may discuss with your peers, TAs, and instructors.</li>
+				<li>You should not copy or share complete solutions.</li>
+				<li>If you work with anyone on the pset (other than TAs and instructors), list their names at the top of the pset.</li>
+			</ul>
+		</p>
+		
+		<hr/>
+		<br>
+		<h2 id=AI_policy>AI assistants policy</h2>
+		<p>
+			<ul>
+				<li>Our policy for using ChatGPT and other AI assistants is <i>identical</i> to our policy for using human assistants.</li>
+				<li>This is a deep learning class and you <i>should</i> 
+					try out all the latest AI assistants (they are pretty much all using deep learning). It's very important to play with them to learn what they can do and what 
+					they can't do. That's a part of the content of this course.</li>
+				<li>Just like you can come to office hours and ask a human questions (about the lecture material, clarifications about pset questions, tips for getting started, etc), 
+					you are very welcome to do the same with AI assistants.</li>
+				<li>But: just like you are not allowed to ask an expert friend to do your homework for you, you also should not ask an expert AI. 
+				<li>If it is ever unclear, just imagine the AI as a human and apply the same norm as you would with a human.</li>
+				<li>If you work with any AI on a pset, briefly describe which AI and how you used it at the top of the pset (a few sentences is enough).</li>
+			</ul>
+		</p>
+		
+		<hr/>
+		<br>
+		<h2 id=late_policy>Late policy</h2>
+		<p>
+			<ul>	
+			<li> Homeworks will not be accepted more than 7 days after the deadline.</li>
+				<li> The grade on a homework received n days after the deadline (n<=7) will be multiplied by (1-n/14). We will round up to units of full days; submitting 1 hour late counts as using 1 late day.</li>
+				<li> Ten penalty days will be automatically waived for each student.</li>
+					<br>
+					For example, let's say a student perfectly solves the first three homeworks but submits the first homework 8 days late,
+					the second homework six days late and the third homework five days late. Then the student will score zero on the first homework,
+					100&percnt; on the second homework (using up six late days) and 100&percnt; * (1-1/14) = 92.9&percnt; on the third homework
+					(using up the last four remaining late days).<br>
+					<br>
+					The slack days are meant to be used for all the normal circumstances of life: being behind on work, forgetting the deadline, 
+					having a conference to attend, etc. We will not grant further extensions for these routine issues. For serious medical issues or 
+					other major life events, please contact <a href="https://studentlife.mit.edu/s3">S3</a> (for undergrads) or 
+					<a href="https://oge.mit.edu/student-support-development/gradsupport/">GradSupport</a> (for grad students) and we will work with them to 
+					find a good solution.
+		</p>
+		
+		<hr/>
+		<br>
+		<h2 id=previous_years>Previous years</h2>
+		<a href="https://phillipi.github.io/6.s898/2022/index.html">Fall 2022</a><br>
+		<a href="https://phillipi.github.io/6.s898/2021/index.html">Fall 2021</a> -->
+
+<p>&nbsp;</p><hr />
+</div>
+</body>
+
+</html>
